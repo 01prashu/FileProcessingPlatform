@@ -1,0 +1,59 @@
+.hero{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+}
+
+.hero h1{
+
+    font-size:40px;
+
+    margin-bottom:15px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+    color:#666;
+
+}
+
+.feature-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+    margin:40px;
+
+}
+
+.feature-card{
+
+    width:350px;
+
+}
+
+mat-card-actions{
+
+    padding:16px;
+
+}
+
+.coming-soon{
+
+    text-align:center;
+
+    margin-top:60px;
+
+    margin-bottom:40px;
+
+}
