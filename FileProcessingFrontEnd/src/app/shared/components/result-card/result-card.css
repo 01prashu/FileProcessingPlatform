@@ -1,0 +1,57 @@
+.result-card{
+
+    margin-top:24px;
+
+    padding:20px;
+
+    border-radius:16px;
+
+}
+
+.result-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.left mat-icon{
+
+    font-size:40px;
+
+    width:40px;
+
+    height:40px;
+
+    color:#22c55e;
+
+}
+
+.left h3{
+
+    margin:0;
+
+    font-size:20px;
+
+}
+
+.left p{
+
+    margin:4px 0 0;
+
+    color:#6b7280;
+
+}

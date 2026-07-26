@@ -1,17 +1,59 @@
-<mat-toolbar>
+<mat-toolbar class="navbar">
 
-    <span><mat-icon>description</mat-icon> File Processing Platform</span>
+
+    <div class="brand">
+
+        <mat-icon>
+            description
+        </mat-icon>
+
+
+        <div>
+
+            <div class="brand-name">
+                File Processing Suite
+            </div>
+
+            <div class="brand-subtitle">
+                Document automation platform
+            </div>
+
+        </div>
+
+
+    </div>
+
+
 
     <span class="spacer"></span>
 
-    <button mat-button routerLink="/">Home</button>
 
-    <button mat-button routerLink="/merge">
-        Merge PDF
-    </button>
 
-    <button mat-button routerLink="/split">
-        Split PDF
-    </button>
+    <div class="actions">
+
+
+        <button mat-icon-button>
+
+            <mat-icon>
+                notifications
+            </mat-icon>
+
+        </button>
+
+
+
+        <button mat-button class="profile">
+
+            <mat-icon>
+                account_circle
+            </mat-icon>
+
+            User
+
+        </button>
+
+
+    </div>
+
 
 </mat-toolbar>

@@ -1,0 +1,155 @@
+.files-container{
+
+    padding:10px;
+
+}
+
+.files-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.files-header h3{
+
+    margin:0;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:#1f2937;
+
+}
+
+.count{
+
+    background:#eef2ff;
+
+    color:#3f51b5;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.file-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 20px;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:14px;
+
+    margin-bottom:14px;
+
+    transition:all .25s ease;
+
+    background:white;
+
+}
+
+.file-card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+}
+
+.file-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.file-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:12px;
+
+    background:#fff3f3;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.file-icon mat-icon{
+
+    color:#e53935;
+
+    font-size:30px;
+
+    width:30px;
+
+    height:30px;
+
+}
+
+.file-name{
+
+    font-weight:600;
+
+    color:#1f2937;
+
+    margin-bottom:4px;
+
+    word-break:break-word;
+
+}
+
+.file-size{
+
+    color:#6b7280;
+
+    font-size:14px;
+
+}
+
+.remove-btn{
+
+    opacity:0;
+
+    transition:.25s;
+
+}
+
+.file-card:hover .remove-btn{
+
+    opacity:1;
+
+}
+
+.remove-btn mat-icon{
+
+    color:#ef4444;
+
+}

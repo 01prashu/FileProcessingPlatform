@@ -1,82 +1,208 @@
-<div class="hero">
+<div class="dashboard">
 
-    <h1><mat-icon>{{ fileIcon }}</mat-icon>   File Processing Platform</h1>
 
-    <p>
-        Process your documents quickly and securely.
-    </p>
+    <!-- Welcome Section -->
 
-    <p>
-        Merge PDFs • Convert Images • Extract Pages
-    </p>
+    <section class="welcome">
+
+        <div>
+
+            <h1>
+                Welcome to File Processing Suite 👋
+            </h1>
+
+
+            <p>
+                Process, merge and split your documents quickly and securely.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+
+    <!-- Quick Actions -->
+
+    <section class="section">
+
+
+        <h2>
+            Quick Actions
+        </h2>
+
+
+        <div class="cards">
+
+
+            <mat-card class="action-card">
+
+
+                <mat-icon class="icon">
+                    merge
+                </mat-icon>
+
+
+                <h3>
+                    Merge Documents
+                </h3>
+
+
+                <p>
+                    Combine multiple PDFs and images into one document.
+                </p>
+
+
+                <button
+                    mat-raised-button
+                    color="primary"
+                    routerLink="/merge">
+
+                    Open Merge
+
+                </button>
+
+
+            </mat-card>
+
+
+
+
+            <mat-card class="action-card">
+
+
+                <mat-icon class="icon">
+                    content_cut
+                </mat-icon>
+
+
+                <h3>
+                    Split PDF
+                </h3>
+
+
+                <p>
+                    Extract selected pages from your PDF files.
+                </p>
+
+
+                <button
+                    mat-raised-button
+                    color="accent"
+                    routerLink="/split">
+
+                    Open Split
+
+                </button>
+
+
+            </mat-card>
+
+
+
+
+            <mat-card class="action-card">
+
+
+                <mat-icon class="icon">
+                    compress
+                </mat-icon>
+
+
+                <h3>
+                    Compress PDF
+                </h3>
+
+
+                <p>
+                    Reduce PDF size while keeping quality.
+                </p>
+
+
+                <button
+                    mat-raised-button
+                    disabled>
+
+                    Coming Soon
+
+                </button>
+
+
+            </mat-card>
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+    <!-- Stats -->
+
+
+    <section class="section">
+
+
+        <h2>
+            Overview
+        </h2>
+
+
+        <div class="stats">
+
+
+            <mat-card>
+
+                <h3>
+                    0
+                </h3>
+
+                <p>
+                    Documents Processed
+                </p>
+
+            </mat-card>
+
+
+
+            <mat-card>
+
+                <h3>
+                    0 MB
+                </h3>
+
+                <p>
+                    Storage Used
+                </p>
+
+            </mat-card>
+
+
+
+            <mat-card>
+
+                <h3>
+                    100%
+                </h3>
+
+                <p>
+                    Processing Success
+                </p>
+
+            </mat-card>
+
+
+        </div>
+
+
+    </section>
+
+
+
 
 </div>
-
-<div class="feature-container">
-
-    <mat-card class="feature-card">
-
-        <mat-card-header>
-
-            <mat-card-title>
-                📑 Merge Documents
-            </mat-card-title>
-
-        </mat-card-header>
-
-        <mat-card-content>
-
-            Merge PDF files and images into a single PDF document.
-
-        </mat-card-content>
-
-        <mat-card-actions>
-
-            <button
-                mat-raised-button
-                color="primary"
-                routerLink="/merge">
-
-                Open
-
-            </button>
-
-        </mat-card-actions>
-
-    </mat-card>
-
-    <mat-card class="feature-card">
-
-        <mat-card-header>
-
-            <mat-card-title>
-
-                ✂ Extract Pages
-
-            </mat-card-title>
-
-        </mat-card-header>
-
-        <mat-card-content>
-
-            Create a new PDF by selecting a page range.
-
-        </mat-card-content>
-
-        <mat-card-actions>
-
-            <button
-                mat-raised-button
-                color="accent"
-                routerLink="/split">
-
-                Open
-
-            </button>
-
-        </mat-card-actions>
-
-    </mat-card>
-
-</div>
-

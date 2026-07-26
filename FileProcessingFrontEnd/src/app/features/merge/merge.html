@@ -1,124 +1,66 @@
-<div class="container">
+<div class="page-container">
 
-    <mat-card>
+    <div class="page-header">
 
-        <mat-card-header>
+        <h2>Merge Documents</h2>
 
-            <mat-card-title>
+        <p>
+            Combine multiple PDF and image files into one PDF document.
+        </p>
 
-                Merge Documents
+    </div>
 
-            </mat-card-title>
+    <mat-card class="section-card">
 
-        </mat-card-header>
-
-        <mat-card-content>
-
-            <p>
-
-                Merge multiple PDF files or images into a single PDF.
-
-            </p>
-
-            <input type="file" multiple #fileInput hidden (change)="onFilesSelected($event)">
-
-            <button mat-raised-button color="primary" (click)="fileInput.click()">
-
-                <mat-icon>upload_file</mat-icon>
-
-                Choose Files
-
-            </button>
-
-            <div class="selected-files" *ngIf="selectedFiles.length>0">
-
-                <h3>
-
-                    Selected Files
-
-                </h3>
-
-                <mat-list>
-
-                    <mat-list-item *ngFor="let file of selectedFiles; let i = index">
-
-                        <mat-icon matListItemIcon>
-
-                            description
-
-                        </mat-icon>
-
-                        <span>
-
-                            {{file.name}}
-
-                        </span>
-
-                        <span class="spacer"></span>
-
-                        <button mat-icon-button color="warn" (click)="removeFile(i)">
-
-                            <mat-icon>
-
-                                delete
-
-                            </mat-icon>
-
-                        </button>
-
-                    </mat-list-item>
-
-                </mat-list>
-
-            </div>
-
-        </mat-card-content>
-
-        <mat-card-actions>
-
-            <button mat-raised-button color="accent" (click)="mergeDocuments()"
-                [disabled]="selectedFiles.length==0 || loading">
-
-                Merge Documents
-
-            </button>
-
-        </mat-card-actions>
-        <div *ngIf="loading">
-
-            <p>
-
-                Uploading...
-
-            </p>
-
-            <mat-progress-bar mode="determinate" [value]="uploadProgress">
-
-            </mat-progress-bar>
-
-        </div>
-        <div *ngIf="response">
-
-            <h3>
-
-                Merge Successful
-
-            </h3>
-
-            <p>
-
-                {{response.documentName}}
-
-            </p>
-
-            <button mat-raised-button color="primary" mat-raised-button color="accent" (click)="downloadFile()">
-
-                Download
-
-            </button>
-
-        </div>
+        <app-document-upload
+            (filesSelected)="onFilesSelected($event)">
+        </app-document-upload>
 
     </mat-card>
+
+    <mat-card
+        class="section-card"
+        *ngIf="selectedFiles.length">
+
+        <app-file-list
+            [files]="selectedFiles"
+            (remove)="removeFile($event)">
+        </app-file-list>
+
+    </mat-card>
+
+    <button
+        class="action-btn"
+        mat-raised-button
+        color="primary"
+        (click)="mergeDocuments()"
+        [disabled]="selectedFiles.length===0 || loading">
+
+        <mat-icon>merge</mat-icon>
+
+        {{loading ? 'Processing...' : 'Merge Documents'}}
+
+    </button>
+
+    <mat-card
+        class="progress-card"
+        *ngIf="loading">
+
+        <h3>Processing document...</h3>
+
+        <mat-progress-bar
+            mode="determinate"
+            [value]="uploadProgress">
+        </mat-progress-bar>
+
+        <p>{{uploadProgress}}%</p>
+
+    </mat-card>
+
+    <app-result-card
+        *ngIf="response"
+        [documentName]="response.documentName"
+        (download)="downloadFile()">
+    </app-result-card>
 
 </div>

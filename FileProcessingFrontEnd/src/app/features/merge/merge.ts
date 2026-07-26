@@ -3,134 +3,201 @@ import { CommonModule } from '@angular/common';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+
+import { HttpEventType } from '@angular/common/http';
+
+import { DocumentUpload } 
+from '../../shared/components/document-upload/document-upload';
+
+import { FileList } 
+from '../../shared/components/file-list/file-list';
+
+import { ResultCard } 
+from '../../shared/components/result-card/result-card';
+
 import { FileService } from '../../core/services/file';
 import { ResponseDto } from '../../models/response-dto';
-import { MatProgressBarModule } from "@angular/material/progress-bar"
-import { HttpEventType } from '@angular/common/http';
+import { environment } from '../../../enviornment/environment';
+import { ChangeDetectorRef } from '@angular/core';
+
 @Component({
   selector: 'app-merge',
-  standalone: true,
-  imports: [
+
+  standalone:true,
+
+  imports:[
     CommonModule,
+
     MatCardModule,
     MatButtonModule,
-    MatListModule,
+    MatProgressBarModule,
     MatIconModule,
-    MatProgressBarModule
+
+    DocumentUpload,
+    FileList,
+    ResultCard,
+    
   ],
-  templateUrl: './merge.html',
-  styleUrl: './merge.css'
+
+  templateUrl:'./merge.html',
+
+  styleUrl:'./merge.css'
 })
 export class Merge {
-  uploadProgress: number = 0;
+
+
+  constructor(
+    private fileService: FileService,
+      private cdr: ChangeDetectorRef
+  ){}
+
+
+
+  selectedFiles: File[] = [];
+
 
   loading = false;
 
+
+  uploadProgress = 0;
+
+
   response?: ResponseDto;
-  constructor(
 
-    private fileService: FileService
 
-  ) { }
-  selectedFiles: File[] = [];
 
-  onFilesSelected(event: Event): void {
 
-    const input = event.target as HTMLInputElement;
+  onFilesSelected(files: File[]){
 
-    if (input.files) {
-      this.selectedFiles = Array.from(input.files);
-    }
+    this.selectedFiles = files;
 
   }
-  removeFile(index: number): void {
 
-    this.selectedFiles.splice(index, 1);
+
+
+
+  removeFile(index:number){
+
+    this.selectedFiles.splice(index,1);
 
   }
-  mergeDocuments() {
 
-    this.loading = true;
 
-    this.fileService.merge(this.selectedFiles)
 
-      .subscribe({
+mergeDocuments(){
 
-        next: (event) => {
 
-          if (event.type === HttpEventType.UploadProgress) {
+  if(this.selectedFiles.length === 0){
+    return;
+  }
 
-            if (event.total) {
 
-              this.uploadProgress = Math.round(
+  this.loading = true;
 
-                event.loaded * 100 / event.total
+  this.uploadProgress = 0;
 
+
+  this.fileService
+    .merge(this.selectedFiles)
+    .subscribe({
+
+      next:(event)=>{
+
+
+        console.log("MERGE EVENT:", event);
+
+
+
+        switch(event.type){
+
+
+
+          case HttpEventType.UploadProgress:
+
+
+            if(event.total){
+
+              this.uploadProgress =
+              Math.round(
+                (event.loaded * 100) /
+                event.total
               );
 
             }
 
-          }
 
-          if (event.type === HttpEventType.Response) {
+            break;
 
-            this.response = event.body!;
 
-            this.loading = false;
 
-          }
+          case HttpEventType.Response:
 
-        },
 
-        error: (err) => {
+            console.log("FINAL RESPONSE:", event.body);
 
-          this.loading = false;
 
-          alert(err.error.remark);
+this.response = event.body!;
+this.uploadProgress = 100;
+this.loading = false;
+
+this.cdr.detectChanges();
+
+
+console.log(
+ "loading:",
+ this.loading,
+ "progress:",
+ this.uploadProgress
+);
+
+
+
+            break;
+
+
 
         }
 
-      });
-
-  }
-downloadFile() {
-
-  if (!this.response) {
-    return;
-  }
-
-  this.fileService.download(this.response.documentName)
-    .subscribe({
-
-      next: (blob: Blob) => {
-
-        const fileURL = URL.createObjectURL(blob);
-
-        const link = document.createElement('a');
-
-        link.href = fileURL;
-        link.download = this.response!.documentName;
-
-        document.body.appendChild(link);
-
-        link.click();
-
-        document.body.removeChild(link);
-
-        URL.revokeObjectURL(fileURL);
 
       },
 
-      error: (err) => {
 
-        console.error(err);
+
+      error:(err)=>{
+
+
+        console.log("MERGE ERROR",err);
+
+
+        this.loading=false;
+
 
       }
 
+
     });
 
+
 }
+
+
+
+  downloadFile(){
+
+    if(!this.response){
+        return;
+    }
+
+
+    const url =
+    `${environment.apiBaseUrl}/download/${this.response.documentName}`;
+
+
+    window.open(url, '_blank');
+
+}
+
 
 }

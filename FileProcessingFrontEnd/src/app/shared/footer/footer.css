@@ -1,0 +1,83 @@
+.footer {
+
+    height:70px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 30px;
+
+    background:white;
+
+    border-top:1px solid #e5e7eb;
+
+    color:#6b7280;
+
+    font-size:14px;
+
+}
+
+
+
+.footer-left {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+
+
+.footer-left mat-icon {
+
+    font-size:22px;
+
+}
+
+
+
+.footer-center {
+
+    color:#9ca3af;
+
+}
+
+
+
+.footer-right {
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+
+
+.footer-right a {
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    color:#6b7280;
+
+}
+
+
+
+.footer-right a:hover {
+
+    color:#2563eb;
+
+}

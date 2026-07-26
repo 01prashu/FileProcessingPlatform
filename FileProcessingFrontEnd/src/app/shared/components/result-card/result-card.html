@@ -1,0 +1,32 @@
+<mat-card class="result-card">
+
+    <div class="result-content">
+
+        <div class="left">
+
+            <mat-icon color="primary">
+                task_alt
+            </mat-icon>
+
+            <div>
+
+                <h3>Merge Successful</h3>
+
+                <p>{{ documentName }}</p>
+
+            </div>
+
+        </div>
+
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="downloadFile()">
+
+            Download
+
+        </button>
+
+    </div>
+
+</mat-card>

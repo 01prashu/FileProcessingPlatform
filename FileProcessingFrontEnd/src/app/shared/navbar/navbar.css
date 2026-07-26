@@ -1,13 +1,91 @@
-.spacer{
-    flex:1;
-}
+.navbar {
 
-mat-toolbar{
+    height: 70px;
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
 
     position: sticky;
 
-    top:0;
+    top: 0;
 
-    z-index:1000;
+    z-index: 1000;
+
+    padding: 0 30px;
+
+}
+
+
+
+.brand {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+
+.brand mat-icon {
+
+    font-size:32px;
+
+    width:32px;
+
+    height:32px;
+
+}
+
+
+
+.brand-name {
+
+    font-size:18px;
+
+    font-weight:700;
+
+    line-height:22px;
+
+}
+
+
+
+.brand-subtitle {
+
+    font-size:12px;
+
+    color:#6b7280;
+
+}
+
+
+
+.spacer {
+
+    flex:1;
+
+}
+
+
+
+.actions {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+
+.profile {
+
+    border-radius:20px;
 
 }

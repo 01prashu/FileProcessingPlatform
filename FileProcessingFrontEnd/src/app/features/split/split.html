@@ -1,1 +1,256 @@
-<p>split works!</p>
+<div class="page-container">
+
+
+    <!-- Header -->
+
+    <div class="page-header">
+
+        <h2>Split PDF</h2>
+
+        <p>
+            Extract a page range from your PDF into a new document.
+        </p>
+
+    </div>
+
+
+
+    <!-- Upload -->
+
+    <mat-card class="section-card">
+
+
+        <input hidden #fileInput type="file" accept=".pdf" (change)="onFileSelected($event)">
+
+
+
+        <div class="upload-box" (click)="fileInput.click()">
+
+
+
+            <mat-icon class="upload-icon">
+                cloud_upload
+            </mat-icon>
+
+
+
+            <h3>
+                Select PDF
+            </h3>
+
+
+
+            <p>
+                Drag & Drop or click to browse
+            </p>
+
+
+
+            <button mat-raised-button color="primary">
+
+                Choose PDF
+
+            </button>
+
+
+
+            <span class="supported">
+                PDF • Maximum 50 MB
+            </span>
+
+
+        </div>
+
+
+    </mat-card>
+
+
+
+
+    <!-- Selected File + Configuration -->
+
+    <mat-card class="section-card" *ngIf="selectedFile">
+
+
+        <h3 class="section-title">
+            Selected Document
+        </h3>
+
+
+
+        <!-- File -->
+
+        <div class="file">
+
+
+            <div class="file-left">
+
+
+                <mat-icon>
+                    picture_as_pdf
+                </mat-icon>
+
+
+
+                <div>
+
+
+                    <div class="name">
+                        {{selectedFile.name}}
+                    </div>
+
+
+
+                    <div class="size">
+                        {{(selectedFile.size/1024/1024).toFixed(2)}} MB
+                    </div>
+
+
+                </div>
+
+
+            </div>
+             <button
+        mat-icon-button
+        color="warn"
+        matTooltip="Remove file"
+        (click)="removeFile()">
+
+
+        <mat-icon>
+            delete
+        </mat-icon>
+
+
+    </button>
+        </div>
+
+
+
+
+        <!-- Split Configuration -->
+
+
+        <div class="range-section">
+
+
+            <h3 class="section-title">
+                Split Pages
+            </h3>
+
+
+
+            <div class="split-config">
+
+
+
+                <div class="split-input">
+
+
+                    <label>
+                        Start Page
+                    </label>
+
+
+                    <input type="number" min="1" [(ngModel)]="startPageNo" (input)="validatePageRange()">
+
+                </div>
+
+
+
+
+
+                <div class="split-input">
+
+
+                    <label>
+                        End Page
+                    </label>
+
+
+                    <input type="number" min="1" [(ngModel)]="lastPageNo" (input)="validatePageRange()">
+
+
+                </div>
+
+                <p class="error-message" *ngIf="pageError">
+
+                    {{pageError}}
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </mat-card>
+
+
+
+
+
+    <!-- Button -->
+
+
+    <button class="action-btn" mat-raised-button color="primary" [disabled]="!selectedFile || loading "
+        (click)="splitDocument()">
+
+
+
+        <mat-icon>
+            call_split
+        </mat-icon>
+
+
+
+        {{ loading ? 'Processing...' : 'Split PDF' }}
+
+
+
+    </button>
+
+
+
+
+
+    <!-- Progress -->
+
+
+    <mat-card class="progress-card" *ngIf="loading">
+
+
+        <h3>
+            Processing document...
+        </h3>
+
+
+
+        <mat-progress-bar mode="determinate" [value]="uploadProgress">
+        </mat-progress-bar>
+
+
+
+        <p>
+            {{uploadProgress}}%
+        </p>
+
+
+
+    </mat-card>
+
+
+
+
+
+    <!-- Result -->
+
+
+    <app-result-card *ngIf="response" [documentName]="response.documentName" (download)="download()">
+
+    </app-result-card>
+
+
+
+</div>

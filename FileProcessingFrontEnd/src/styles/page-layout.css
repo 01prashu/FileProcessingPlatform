@@ -1,0 +1,275 @@
+.page-container{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+/* Page Header */
+
+.page-header{
+
+    margin-bottom:28px;
+
+}
+
+
+.page-container .page-header h2{
+
+    font-size:32px;
+
+    line-height:1.2;
+
+    font-weight:700;
+
+    color:#1e293b;
+
+    margin:0 0 8px 0;
+
+}
+
+
+.page-container .page-header p{
+
+    color:#64748b;
+
+    font-size:16px;
+
+    line-height:1.5;
+
+    margin:0;
+
+}
+
+
+
+/* Common Card */
+
+.section-card{
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    border-radius:16px;
+
+}
+
+
+
+/* Section Heading */
+
+.section-title{
+
+    margin:0 0 18px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:#1e293b;
+
+}
+
+
+
+/* Main Action Button */
+
+.action-btn{
+
+    width:100%;
+
+    height:52px;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+
+}
+
+
+.action-btn mat-icon{
+
+    margin-right:8px;
+
+}
+
+
+
+/* Progress */
+
+.progress-card{
+
+    padding:20px;
+
+    margin-bottom:24px;
+
+    border-radius:16px;
+
+}
+
+
+.progress-card h3{
+
+    margin-bottom:15px;
+
+}
+
+
+.progress-card p{
+
+    margin-top:12px;
+
+    text-align:right;
+
+    color:#64748b;
+
+}
+
+
+
+/* File Component */
+
+.files-title{
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+
+.file{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+.file-left{
+
+    display:flex;
+
+    gap:14px;
+
+    align-items:center;
+
+}
+
+
+.file-left mat-icon{
+
+    color:#1976d2;
+
+}
+
+
+.name{
+
+    font-weight:600;
+
+}
+
+
+.size{
+
+    color:#64748b;
+
+    font-size:14px;
+
+}
+
+
+
+/* Split Page */
+
+.split-config{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+
+.split-input{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.split-input label{
+
+    margin-bottom:8px;
+
+    font-weight:500;
+
+}
+
+
+.split-input input{
+
+    height:46px;
+
+    border:1px solid #dcdcdc;
+
+    border-radius:8px;
+
+    padding:0 14px;
+
+    font-size:15px;
+
+}
+
+
+.split-input input:focus{
+
+    outline:none;
+
+    border-color:#1976d2;
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+
+    .page-container{
+
+        padding:0 15px;
+
+    }
+
+
+    .page-header h2{
+
+        font-size:26px;
+
+    }
+
+
+    .split-config{
+
+        flex-direction:column;
+
+    }
+
+}

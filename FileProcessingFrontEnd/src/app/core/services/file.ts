@@ -55,5 +55,22 @@ export class FileService {
     );
 
 }
+split(file: File, startPageNo: number, lastPageNo: number) {
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+    formData.append("startPageNo", startPageNo.toString());
+    formData.append("lastPageNo", lastPageNo.toString());
+
+    return this.http.post<ResponseDto>(
+        `${environment.apiBaseUrl}/split`,
+        formData,
+        {
+            observe: "events",
+            reportProgress: true
+        }
+    );
+}
 
 }

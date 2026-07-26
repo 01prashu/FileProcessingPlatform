@@ -1,0 +1,52 @@
+<div class="files-container">
+
+    <div class="files-header">
+
+        <h3>Selected Files</h3>
+
+        <span class="count">
+            {{ files.length }} Files
+        </span>
+
+    </div>
+
+    <div
+        class="file-card"
+        *ngFor="let file of files; let i=index">
+
+        <div class="file-left">
+
+            <div class="file-info">
+
+                <div class="file-name">
+
+                    {{ file.name }}
+
+                </div>
+
+                <div class="file-size">
+
+                    {{ (file.size/1024/1024).toFixed(2) }} MB
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            mat-icon-button
+            class="remove-btn"
+            (click)="removeFile(i)">
+
+            <mat-icon>
+
+                close
+
+            </mat-icon>
+
+        </button>
+
+    </div>
+
+</div>

@@ -1,0 +1,123 @@
+.upload-box{
+
+    border:2px dashed #d6dbe8;
+
+    border-radius:20px;
+
+    background:#fafcff;
+
+    padding:60px 30px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+
+}
+
+.upload-box:hover{
+
+    border-color:#3f51b5;
+
+    background:#f4f7ff;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(63,81,181,.12);
+
+}
+
+.upload-box.dragging{
+
+    border-color:#3f51b5;
+
+    background:#eef3ff;
+
+}
+
+.upload-icon-wrapper{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#e8edff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:20px;
+
+}
+
+.upload-icon{
+
+    font-size:48px;
+
+    width:48px;
+
+    height:48px;
+
+    color:#3f51b5;
+
+}
+
+.upload-box h2{
+
+    margin:10px 0;
+
+    font-size:28px;
+
+    font-weight:600;
+
+    color:#1f2937;
+
+}
+
+.upload-box p{
+
+    color:#6b7280;
+
+    margin-bottom:25px;
+
+    font-size:15px;
+
+}
+
+.browse-btn{
+
+    padding:8px 28px;
+
+    border-radius:10px;
+
+}
+
+.supported{
+
+    margin-top:25px;
+
+    color:#9ca3af;
+
+    font-size:13px;
+
+}
+
+.supported span{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:#4b5563;
+
+    font-weight:500;
+
+}
